@@ -13,9 +13,10 @@ function Colors(props) {
       >
         {props.element.hex}
       </div>
-      <h2>{props.element.name}</h2>
-      <img style={{ height: "15vh", width: "15vh" }} src={props.element.img} />
+      <h4>{props.element.name}</h4>
+      <img alt='color' className="colors-image" src={props.element.img} />
     </div>
+    
   );
 }
 

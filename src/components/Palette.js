@@ -100,9 +100,13 @@ class Palette extends Component {
           <div className="colors-component-container">
          { this.state.palette.map((element, index) => {
             return (
-             
+                <div>
                 <Colors index={index} element={element} />
-              
+                <div className="delete-edit-buttons-container">
+                <button className="delete-button">Delete</button>
+                <button className="edit-button">Edit</button>
+                </div>
+                </div>
             );
           })}
           </div>

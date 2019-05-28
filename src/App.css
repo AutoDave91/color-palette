@@ -64,7 +64,7 @@ code {
 }
 
 /* color component */
-.colors-component-container{
+.colors-component-container {
   display: flex;
   width: 100vw;
 }
@@ -74,11 +74,45 @@ code {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
   margin-left: 5vw;
+  width: 17vw;
+  height: 40vh;
 }
 
 .hex {
   width: 10vw;
   height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.colors-image {
+  height: 15vh;
+  width: 15vh;
+}
+
+.delete-edit-buttons-container {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 5vw;
+}
+
+.delete-button,
+.edit-button {
+  width: 7vw;
+  margin-top: 2vh;
+  font-weight: 900;
+  font-size: .9em;
+  font-family: "Roboto Slab", serif;
+}
+
+.delete-button {
+  background-color: #ea9aaa;
+}
+
+.edit-button {
+  background-color: #54d2e5;
 }
