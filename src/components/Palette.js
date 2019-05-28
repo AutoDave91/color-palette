@@ -15,7 +15,8 @@ class Palette extends Component {
     };
     this.toggleScreen = this.toggleScreen.bind(this);
     this.handleChange = this.handleChange.bind(this);
-
+    this.updateColors = this.updateColors.bind(this)
+    this.createPalette = this.createPalette.bind(this)
  
     
   }
@@ -37,12 +38,14 @@ class Palette extends Component {
 
   //This function isn't working
   updateColors(update){
+    console.log('hit')
     this.setState({ palette: update });
   }
 
 
   //Set up post request to create a palette
   createPalette(e, hex, name, img) {
+    console.log(e, hex, name, img)
     e.preventDefault();
     axios
       .post("/api/palette", {
@@ -51,9 +54,10 @@ class Palette extends Component {
         img: img
       })
       .then(response => {
+        
       //Need to make this work so it causes page to re-render and show updated data after the post has been made    
-      this.updateColors(response.data)  
-        // this.setState({hex: "", name: "", img: "" });
+    this.updateColors(response.data)
+    this.setState({toggle: !this.state.toggle})    
       })
       .catch(error => {
         console.log(error);
@@ -75,11 +79,11 @@ class Palette extends Component {
     return (
       <div className="palette-component">
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <button onClick={this.toggleScreen} className="submit-button">
+          <button onClick={this.toggleScreen} className="toggle-button">
             Toggle Display
           </button>
         </div>
-
+      
         {/* Set up two components, one which shows the form and one which maps out the data */}
         {/* Basic logic: if this ? this : that */}
         {this.state.toggle === true ? (
@@ -93,15 +97,18 @@ class Palette extends Component {
           />
         ) : (
           //Create a map function to map out the color data. You can create another component to display the JSX
-          this.state.palette.map((element, index) => {
+          <div className="colors-component-container">
+         { this.state.palette.map((element, index) => {
             return (
-           
+             
                 <Colors index={index} element={element} />
-    
+              
             );
-          })
+          })}
+          </div>
         )}
       </div>
+  
     );
   }
 }

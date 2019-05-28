@@ -18,9 +18,7 @@ class Form extends Component {
           <input
             name="hex"
             value={this.props.hex}
-            onChange={e => {
-              this.props.handleChange(e);
-            }}
+            onChange={e => {this.props.handleChange(e)}}
           />
           <h4>Name</h4>
           <input
@@ -39,17 +37,7 @@ class Form extends Component {
             }}
           />
           <br />
-          <button
-            onClick={e =>
-              this.props.createPalette(
-                e,
-                this.props.hex,
-                this.props.name,
-                this.props.img
-              )
-            }
-            className="submit-button"
-          >
+          <button onClick={e => this.props.createPalette(e,  this.props.hex, this.props.name, this.props.img)} className="submit-button">
             Submit
           </button>
         </form>
