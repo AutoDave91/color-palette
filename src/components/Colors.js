@@ -16,7 +16,7 @@ function Colors(props) {
       <h4>{props.element.name}</h4>
       <img alt='color' className="colors-image" src={props.element.img} />
     </div>
-    
+
   );
 }
 

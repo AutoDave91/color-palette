@@ -24,4 +24,29 @@ const getPalette = (req, res) => {
   res.json(colors);
 };
 
-module.exports = { getPalette, createPalette };
+const deletePalette = (req, res) => {
+console.log(req.params.color)
+const index = colors.findIndex(color => color.name === req.params.color);
+colors.splice(index, 1);
+res.json(colors)
+}
+
+const editPalette = (req, res) => {
+  const {hex, name, img} = req.body
+  const index = colors.findIndex(element => {
+    return element.name === req.params.name;
+  });
+  if (name !== "") {
+    colors[index].name = name;
+  }
+  if (img !== "") {
+    colors[index].img = img;
+  }
+  if (hex !== "") {
+    colors[index].hex = hex;
+  }
+
+  res.json(colors);
+}
+
+module.exports = { getPalette, createPalette, deletePalette, editPalette };
