@@ -20,6 +20,7 @@ class Palette extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.updateColors = this.updateColors.bind(this);
     this.createPalette = this.createPalette.bind(this);
+    this.editPalette = this.editPalette.bind(this);
   }
   ////Set-up component to get data from controller, then set that data to state
 
@@ -58,7 +59,6 @@ class Palette extends Component {
         console.log(error);
       });
   }
-
 
   //Edit is working but update function is not working.
   editPalette(e, hex, name, img, toEdit) {
